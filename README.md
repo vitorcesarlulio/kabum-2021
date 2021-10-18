@@ -9,43 +9,44 @@
   <ol>
     <li><a href="#projeto">Projeto</a></li>
     <li>
-      <a href="#comecando">Começando</a>
+      <a href="#começando">Começando</a>
       <ul>
-        <li><a href="#pre-requisitos">Pré-requisitos</a></li>
-        <li><a href="#instalacao">Instalando Kabum-2021</a></li>
+        <li><a href="#pré-requisitos">Pré-requisitos</a></li>
+        <li><a href="#instalando-kabum-2021">Instalando Kabum-2021</a></li>
         <ul>
-        <li><a href="#instalacao">Windows</a></li>
+        <li><a href="#windows">Windows</a></li>
         </ul>
       </ul>
     </li>
-    <li><a href="#usando">Usando Kabum-2021</a></li>
-    <li><a href="#roadmap">Colaboradores</a></li>
-    <li><a href="#contributing">Licença</a></li>
-    <li><a href="#license">Contato</a></li>
-    <li><a href="#contact">Agradecimentos</a></li>
+    <li><a href="#usando-kabum-2021">Usando Kabum-2021</a></li>
+    <li><a href="#colaboradores">Colaboradores</a></li>
+    <li><a href="#licença">Licença</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#agradecimentos">Agradecimentos</a></li>
   </ol>
 </details>
 
 <p align="center">
-  <a href="ALTERAR">Explore os documentos</a>
-  ·
-  <a href="ALTERAR">Ver demonstração</a>
+  <a href="https://github.com/vitorcesarlulio/kabum-2021">Explore os documentos</a>
+  <!--·
+  <a href="ALTERAR">Ver demonstração</a>-->
   ·
   <a href="https://github.com/vitorcesarlulio/kabum-2021/issues">Reportar bug</a>
   ·
-  <a href="malito:vitorcesarlulio@hotmail.com">Solicitar recurso</a>
+  <a href="https://malito:vitorcesarlulio@hotmail.com">Solicitar recurso</a>
 </p>
 
 ## **Projeto**
 
-O projeto conta com algumas funcionalidades referentes a segurança:
+O projeto conta com algumas funcionalidades:
 
 - [x] Controle de permissões
 - [x] Controle de inatividade (Time Out)
-- [x] Controle de tentativas no login
+- [x] Controle de tentativas ao realizar login
 - [x] Função "Lembre-me" no login
 - [x] Criptografia de senhas
 - [x] Controle contra SQL-Injection
+- [x] Responsividade
 - [ ] Aprimorar Cookies
 - [ ] Google Authenticator
 - [ ] Melhorias OO (Orientação Obejetos)
@@ -60,13 +61,13 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 * [PHP](https://www.php.net/)
   - Versão de desenvimento: 7.4.4;
-  - Obrigatorio.
+  - Obrigatório.
 * [Composer](https://getcomposer.org/)
   - Utilizado para dependências do projeto desenvolvidas por terceiros como *blade* e *plug-route*;
   - Opcional.
 * [Servidor Web](https://httpd.apache.org/) 
    - Pode ser utilizado servidor Web [Xammp](https://www.apachefriends.org/pt_br/index.html) que já embuti o PHP, Apache e MySQL, [Lamp](https://bitnami.com/stack/lamp/installer) ou [Wamp](https://www.wampserver.com/en/);
-   - Obrigatorio.
+   - Obrigatório.
 * [MySQL](https://www.mysql.com/)
   - Versão de desenvolvimento: 10.4.13;
   - Obrigatório.
@@ -82,7 +83,7 @@ Para instalar o Kabum-2021, siga estas etapas:
   - Remova o `#` na linha `LoadModule rewrite_module modules/mod_rewrite.so`.
 
 - No arquivo httpd-vhosts.conf realize os seguintes passos:
-  - Geralmente localizado em `C:\Apache24\conf\extra\httpd-vhosts.conf` ou `C:\xampp\apache\conf\extra\httpd-vhosts.conf`. Insira o trecho de código abaixo que criará um servidor virtual para aplicação (obrigatorio).
+  - Geralmente localizado em `C:\Apache24\conf\extra\httpd-vhosts.conf` ou `C:\xampp\apache\conf\extra\httpd-vhosts.conf`. Insira o trecho de código abaixo que criará um servidor virtual para aplicação (obrigatório).
 ```
 <VirtualHost *:80>  
 	# Indeferi
@@ -107,20 +108,21 @@ Para instalar o Kabum-2021, siga estas etapas:
 </VirtualHost>
 ```
 
-- Vá até o arquivo de hosts do Windows, geralmente localizado em `C:\Windows\System32\drivers\etc\hosts`. Obs.: é necessário editar o arquivo `hosts` com privilégios de administrador. Insira o trecho de código abaixo refere-se ao atributo `ServerName` e `ServerAlias` do arquivo `httpd-vhosts.conf` e é necessário para acessar em seu navegador de preferência a aplicação.
+- Vá até o arquivo de hosts do Windows, geralmente localizado em `C:\Windows\System32\drivers\etc\hosts`. Obs.: é necessário editar o arquivo `hosts` com privilégios de administrador. 
+- Insira o trecho de código abaixo refere-se ao atributo `ServerName` e `ServerAlias` do arquivo `httpd-vhosts.conf` e é necessário para acessar a aplicação em seu navegador de preferência.
 ```	
 127.0.0.1   localhost
 127.0.0.1   local.kabum-2021
 ```
 
-- Em seu editor SQL de preferência, importe o arquivo `database-kabum-2021.sql` localizado na pasta `kabum-2021/public/`.
+- Em seu editor SQL de preferência, importe o arquivo `database_kabum_2021.sql` localizado na pasta `kabum-2021/public/sql`.
 
 - Verifique se a pasta `cache` é existente na estrutura `/app/View/`.
 
 - Vá até o arquivo `config.php` localizado em `/config/`
   - Altere os dados da seção `Acesso ao banco de dados`, informando o Host de conexão, porta, nome do banco de dados, usuário e senha.
 
-- No arquivo php.ini pode ser necessario realizar os seguintes passos:
+- No arquivo `php.ini` pode ser necessário realizar os seguintes passos:
   - Geralmente localizado em `C:\xampp\php\php.ini` ou `C:\php\php.ini`;
   - Remova o `;` na linha `extension=pdo_mysql`;
   - Remova o `;` na linha `extension=php_pdo.dll`;
@@ -133,7 +135,7 @@ Para instalar o Kabum-2021, siga estas etapas:
 
 Para usar Kabum-2021, siga estas etapas:
 
-- Certifique-se que seguiu as instruções dos tópicos <a href="#pre-requisitos">Pré-requisitos</a> e <a href="#instalacao">Instalando Kabum-2021</a>
+- Certifique-se que seguiu as instruções dos tópicos <a href="#pré-requisitos">Pré-requisitos</a> e <a href="#instalacao">Instalando Kabum-2021</a>
  - Acesse em seu navegador de preferência o endereço: http://local.kabum-2021/ ou http://localhost/
  - Entre com usuário **ROOT** e senha **root@123**
 
@@ -162,7 +164,7 @@ Para usar Kabum-2021, siga estas etapas:
   </table>
 
 ## **Licença**
-  Esse projeto está sob licença MIT. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
+  Esse projeto está sob licença MIT. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
 ## **Contato**
   <a href="https://www.linkedin.com/in/vitor-cesar-lulio/">
@@ -190,20 +192,10 @@ Para usar Kabum-2021, siga estas etapas:
   - [FullCycle](https://www.youtube.com/FullCycle)
   - [JavaScript Brasil](https://t.me/javascriptbr)
   - [Node Studio Treinamentos](https://www.youtube.com/channel/UCZZ0NTtOgsLIT4Skr6GUpAw)
-    - https://www.youtube.com/watch?v=Yt35H_zinTk
-    - https://www.youtube.com/watch?v=F1bLyT55BWM
-    - https://www.youtube.com/watch?v=L1wqfXv-lAo 
   - [PHP](https://www.php.net/manual/pt_BR/)
   - [PHP Brasil](https://t.me/phpbrasil)
   - [Plug-Route](https://github.com/erandirjunior/plug-route)
   - [UpInside](https://www.youtube.com/UpInsideBr)
   - [Webdesign em Foco](https://www.youtube.com/WebdesignemFocoBrasil)
 
-
-
-
-
-
-
-
-[⬆ Voltar ao topo](#kabum-2021)
+[⬆ Voltar ao topo](#vítor-césar-lulio---kabum-2021)

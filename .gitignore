@@ -38,4 +38,4 @@ test.html
 ad.js
 
 //cache
-View/cache/*
+/app/View/cache/*

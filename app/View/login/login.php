@@ -103,7 +103,7 @@ $checkedRemember  = ($remember == 'rememberYes') ? 'checked' : null;
                         <input type="password" class="form-control" placeholder="Senha" name="passwordLogin" id="passwordLogin" value="<?= $passwordRemember ?>">
                         <div class="input-group-append">
                             <div class="input-group-text" id="divShowPassword">
-                                <span class="far fa-eye" onclick="showHidePassword()" style="cursor: pointer;" id="showPassword">
+                                <span class="far fa-eye" onclick="ShowHidePassword()" style="cursor: pointer;" id="showPassword">
                             </div>
                         </div>
                     </div>
@@ -168,6 +168,22 @@ $checkedRemember  = ($remember == 'rememberYes') ? 'checked' : null;
             echo ` $(".alert alert-danger").remove(); ` ;//if ($(this).hasClass(".alert alert-danger")) {  }
         }
     ?>
+
+    <script>
+        function ShowHidePassword() {
+            var x = document.getElementById("passwordLogin");
+            var shwoPassword = document.getElementById("showPassword");
+            if (x.type === "password") {
+                x.type = "text";
+                $('#showPassword').hide();
+                $('#divShowPassword').html('<span class="far fa-eye-slash" onclick="ShowHidePassword()" style="cursor: pointer;" id="showPassword">');
+            } else {
+                x.type = "password";
+                $('#showPassword').hide();
+                $('#divShowPassword').html('<span class="far fa-eye" onclick="ShowHidePassword()" style="cursor: pointer;" id="showPassword">');
+            }
+        }
+    </script>
 </body>
 
 </html>
